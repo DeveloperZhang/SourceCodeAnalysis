@@ -157,11 +157,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates and runs an `NSURLSessionDataTask` with a `GET` request.
 
- @param URLString The URL string used to create the request URL.
- @param parameters The parameters to be encoded according to the client request serializer.
- @param downloadProgress A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.
- @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.
- @param failure A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.
+ @param URLString The URL string used to create the request URL.--网络请求URL字符串（相对路径）
+ @param parameters The parameters to be encoded according to the client request serializer.--即将被格式序列化的请求参数（http,json,propertyListRequestSerializer）
+ @param downloadProgress A block object to be executed when the download progress is updated. Note this block is called on the session queue, not the main queue.--block对象，当一个下载任务被更新时候，它会被执行，它是在session子线程上调用，而不是主线程上
+ @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the data task, and the response object created by the client response serializer.--block对象，当任务执行成功后的回调，其没有返回值，有两个参数，数据请求任务，被客户端返回序列化对象创建的返回对象。
+ @param failure A block object to be executed when the task finishes unsuccessfully, or that finishes successfully, but encountered an error while parsing the response data. This block has no return value and takes a two arguments: the data task and the error describing the network or parsing error that occurred.--block对象，当任务执行失败后的回调，或者是返回成功，但是解析返回数据遇到了错误。其没有返回值，有两个参数，数据请求任务，网络或者数据解析的错误描述。
 
  @see -dataTaskWithRequest:uploadProgress:downloadProgress:completionHandler:
  */
